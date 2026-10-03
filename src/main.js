@@ -92,9 +92,9 @@ function watchR2(onPress) {
   window.addEventListener("keydown", onKey, true);
 }
 
-function watchCross(onPress) {
+function watchCircle(onPress) {
 	function onKey(event) {
-		if (event.key !== "Space" || event.code !== "Unidentified") return;
+		if (event.key !== "Escape" || event.code !== "Unidentified") return;
 		window.removeEventListener("keydown", onKey, true);
 		event.preventDefault();
 		onPress();
@@ -300,7 +300,7 @@ async function main(userlandRW) {
         log(error instanceof Error ? error.message : String(error), "error");
       }
     });
-    watchCross(async () => {
+    watchCircle(async () => {
     	try {
     		const { loadFallbackFTP } = await import("./kexp.js");
     		await loadFallbackFTP(p, chain, (message) => log(message, "info"));
