@@ -99,7 +99,7 @@ function watchCircle(onPress) {
 		event.preventDefault();
 		onPress();
 	}
-	log("press X in case of etaHEN not loading it's ftp server", "info");
+	log("press O (Circle) to load everything BUT etaHEN for compatibility with PS5SX2", "info");
 	window.addEventListener("keydown", onKey, true);
 }
 
