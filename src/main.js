@@ -302,8 +302,8 @@ async function main(userlandRW) {
     });
     watchCircle(async () => {
     	try {
-    		const { loadFallbackFTP } = await import("./kexp.js");
-    		await loadFallbackFTP(p, chain, (message) => log(message, "info"));
+    		const { NoetaHEN } = await import("./kexp.js");
+    		await NoetaHEN(p, chain, (message) => log(message, "info"));
     	} catch (error) {
     		log(error instanceof Error ? error.message : String(error), "error");
     	}
