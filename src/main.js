@@ -94,7 +94,7 @@ function watchR2(onPress) {
 
 function watchCross(onPress) {
 	function onKey(event) {
-		if (event.key !== "Enter" || event.code !== "Unidentified") return;
+		if (event.key !== "Space" || event.code !== "Unidentified") return;
 		window.removeEventListener("keydown", onKey, true);
 		event.preventDefault();
 		onPress();
