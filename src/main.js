@@ -103,6 +103,17 @@ function watchCircle(onPress) {
 	window.addEventListener("keydown", onKey, true);
 }
 
+function watchSquare(onPress) {
+	function onKey(event) {
+		if (event.key !== "F2" || event.code !== "Unidentified") return;
+		window.removeEventListener("keydown", onKey, true);
+		event.preventDefault();
+		onPress();
+	}
+	log("press ■ (Square) to load etaHEN independently after usage of no etaHEN payloads. THIS CANNOT BE UNDONE!");
+	window.addEventListener("keydown", onKey, true);
+}
+
 const ROP_WAIT_MS = 20000;
 
 function jbmark(tag, detail) {
@@ -304,6 +315,14 @@ async function main(userlandRW) {
     	try {
     		const { NoetaHEN } = await import("./kexp.js");
     		await NoetaHEN(p, chain, (message) => log(message, "info"));
+    	} catch (error) {
+    		log(error instanceof Error ? error.message : String(error), "error");
+    	}
+    });
+    watchSquare(async () => {
+    	try {
+    		const {etaHENLoad} = await import("./kexp.ks");
+    		await etaHENLoad(p, chain, (message) => log(message, "info"));
     	} catch (error) {
     		log(error instanceof Error ? error.message : String(error), "error");
     	}

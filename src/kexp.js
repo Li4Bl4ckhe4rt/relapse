@@ -204,6 +204,13 @@ export async function NoetaHEN(p, chain, log) {
   log("websrv-ps5.elf sent");
 }
 
+export async function etaHENLoad(p, chain, log) {
+	log("preparing etaHEN");
+	const _etahen = await mapElf("etaHEN.elf", p, chain); // _ added for my worries about compatibility, I am unsure if consts get unloaded/wiped out after the web browser closes.
+	await sendElf("etaHEN.elf", _etahen, p, chain);
+	log("etaHEN.elf sent");
+}
+
 function patchShellcode(blob, symbols) {
   if (blob.length !== SHELLCODE.size)
     throw new Error("kexp: expected " + SHELLCODE.size + " bytes, got " + blob.length);
