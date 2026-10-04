@@ -185,12 +185,15 @@ export async function NoetaHEN(p, chain, log) {
   const klogsrv = await mapElf("klogsrv-ps5.elf", p, chain);
   const websrv = await mapElf("websrv-ps5.elf", p, chain);
   const ftpsrv = await mapElf("ftpsrv-ps5.elf", p, chain);
+  const ps5sx2helper = await mapElf("PS5SXHelper.elf", p, chain);
   await sendElf("Kstuff-NG_v1.00.elf", kstuff, p, chain);
   log("Kstuff-NG_v1.00.elf sent");
   await new Promise((resolve) => setTimeout(resolve, 3000));
   await sendElf("shadowmountplus.elf", shadowmount, p, chain);
   log("shadowmountplus.elf sent");
   log("---------------------------");
+  await sendElf("PS5SXHelper.elf", ps5sx2helper, p, chain);
+  log("PS5SXHelper.elf sent");
   await sendElf("shsrv-ps5.elf", shsrv, p, chain);
   log("shsrv-ps5.elf sent");
   await sendElf("ftpsrv-ps5.elf", ftpsrv, p, chain);
