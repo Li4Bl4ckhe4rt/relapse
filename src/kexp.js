@@ -184,6 +184,7 @@ export async function NoetaHEN(p, chain, log) {
   const shsrv = await mapElf("shsrv-ps5.elf", p, chain);
   const klogsrv = await mapElf("klogsrv-ps5.elf", p, chain);
   const websrv = await mapElf("websrv-ps5.elf", p, chain);
+  const ftpsrv = await mapElf("ftpsrv-ps5.elf", p chain);
   await sendElf("Kstuff-NG_v1.00.elf", kstuff, p, chain);
   log("Kstuff-NG_v1.00.elf sent");
   await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -192,6 +193,8 @@ export async function NoetaHEN(p, chain, log) {
   log("---------------------------")
   await sendElf("shsrv-ps5.elf", shsrv, p, chain);
   log("shsrv-ps5.elf sent");
+  await sendElf("ftpsrv-ps5.elf", ftpsrv, p, chain);
+  log("ftpsrv-ps5.elf sent");
   await sendElf("klogsrv-ps5.elf", klogsrv, p, chain);
   log("klogsrv-ps5.elf sent");
   await sendElf("websrv-ps5.elf", websrv, p, chain);
